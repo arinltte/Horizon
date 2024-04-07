@@ -1,0 +1,125 @@
+<!--
+UCCD2323 FRONT-END WEB DEVELOPMENT
+
+Chen Jin Shen	2202076
+Chin Whye Ting	2200559
+Chong Jun Hao	2301368
+Ong Jing Yang	2200327
+
+If it ain't broke
+Never fix it
+- Confucius 2023A
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="assets/logo.png">
+    <link rel="stylesheet" href="signinstyle.css">
+    <title>Sign In</title>
+</head>
+
+<body>
+    <!-- Navigation Bar Section -->
+    <section id="home">
+        <div class="homebanner">
+            <div class="sidebar">
+                <ul>
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="index.html#explore">Explore</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="signin.html">Feedback</a></li>
+                    <li><a href="signup.html">Sign Up</a></li>
+                </ul>
+            </div>
+            <div class="navbar">
+                <img src="assets/logo.png" style="height: 50px;">
+                <h1 class="logo">Horizon</h1>
+                <button onclick="showsidebar()" class="menu">&#9776</button>
+                <ul>
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="index.html#explore">Explore</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="signin.html">Feedback</a></li>
+                    <li><a href="signup.html">Sign Up</a></li>
+                </ul>
+            </div>
+            <script>
+                function showsidebar() {
+                    var sidebar = document.querySelector('.sidebar');
+                    if (sidebar.style.display === 'none' || sidebar.style.display === '') {
+                        sidebar.style.display = 'block';
+                    } else {
+                        sidebar.style.display = 'none';
+                    }
+                }
+            </script>
+        </div>
+
+        <!-- Sign In Form Section -->
+        <section>
+            <form id="signinform">
+                <div class="form-box">
+                    <div class="form-value">
+                        <form action="">
+                            <h2>Sign In</h2>
+
+                            <div class="inputbox">
+                                <ion-icon name="mail-outline"></ion-icon>
+                                <input type="email" required id="email" name="email">
+                                <label for="email">Email</label>
+                            </div>
+
+                            <div class="inputbox">
+                                <ion-icon name="lock-closed-outline"></ion-icon>
+                                <input type="password" required id="password" name="password">
+                                <label for="password">Password</label>
+
+                            </div>
+                            <div class="forget">
+                                <label for=""><input type="checkbox">Remember Me</label>
+                            </div>
+                            <button type="submit">Log in</button>
+                        </form>
+
+                        <script>
+                            document.getElementById("signinform").addEventListener("submit", function (event) {
+                                event.preventDefault();
+                                var email = document.getElementById("email").value;
+                                var password = document.getElementById("password").value;
+
+                                var storedEmail = getCookie("email");
+                                var storedPassword = getCookie("password");
+
+                                if (email === storedEmail && password === storedPassword) {
+                                    alert("Welcome to Horizon");
+                                    window.location.href = "homeadmin.html"; // Redirect to homeadmin.html
+                                } else {
+                                    alert("Invalid Email or Password");
+                                }
+                            });
+
+                            // Retrieved Cookies from Sign Up
+                            function getCookie(name) {
+                                var value = "; " + document.cookie;
+                                var parts = value.split("; " + name + "=");
+                                if (parts.length === 2) return parts.pop().split(";").shift();
+                            }
+                        </script>
+
+                        <div class="register">
+                            <p>Don't have a account? <a href="signup.html">Sign Up</a></p>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </section>
+        <!-- Icon Link Script -->
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

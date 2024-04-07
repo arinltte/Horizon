@@ -1,0 +1,602 @@
+/* 
+UCCD2323 FRONT-END WEB DEVELOPMENT
+
+Chen Jin Shen	2202076
+Chin Whye Ting	2200559
+Chong Jun Hao	2301368
+Ong Jing Yang	2200327
+
+If it ain't broke
+Never fix it
+- Confucius 2023A
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/*Hide Scrollbar*/
+body {
+  overflow: overlay;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+.homebanner {
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(assets/background.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+/* Navigation Bar Slide In Animation */
+@keyframes slideInnav {
+  from {
+    transform: translateY(-100px);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+.navbar {
+  width: 100%;
+  margin: auto;
+  padding: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: transparent;
+  position: fixed;
+  z-index: 1;
+
+  animation: slideInnav 1s ease-in 1s 1 normal both;
+}
+
+.navbar h1 {
+  color: #fff;
+  font-weight: 200;
+  margin-right: auto;
+}
+
+.navbar ul li {
+  list-style: none;
+  display: inline-block;
+  margin: 0 20px;
+  position: relative;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+/* Text Hover Underline Animation */
+.navbar ul li::after {
+  content: '';
+  height: 3px;
+  width: 0%;
+  background: #586285;
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  transition: 0.5s;
+}
+
+.navbar ul li:hover::after {
+  width: 100%;
+}
+
+.homecontent {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+  color: #fff;
+}
+
+/* Home Title Slide In Animation */
+@keyframes slideIn {
+  from {
+    transform: translateY(300px);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+.homecontent h1 {
+  font-size: 70px;
+  margin-top: 80px;
+  font-weight: 100;
+  line-height: 90%;
+
+  animation: slideIn 1s ease-in 1ms 1 normal both;
+}
+
+.homecontent p {
+  margin: 70px auto;
+  font-weight: 100;
+  line-height: 25px;
+
+  animation: slideIn 1s ease-in 0.9s 1 normal both;
+}
+
+/* Home Explore Button Slide In Animation */
+@keyframes slideInbut {
+  from {
+    transform: translateY(230px);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Home Explore Button Fill In Animation */
+.homecontent button {
+  width: 200px;
+  padding: 15px 0;
+  text-align: center;
+  margin: 20px 10px;
+  border-radius: 25px;
+  font-weight: bold;
+  border: 2px solid #fff;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+
+  animation: slideInbut 1s ease-in 1s 1 normal both;
+}
+
+.homecontent span {
+  background: #586285;
+  height: 1000%;
+  width: 0;
+  border-radius: 25px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+  transition: 0.5s;
+}
+
+button:hover span {
+  width: 100%;
+}
+
+/* Explore Section */
+#explore {
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(assets/background2.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+#explore h1 {
+  width: 100%;
+  position: absolute;
+  transform: translateY(130%);
+  text-align: center;
+  color: #fff;
+  font-size: 70px;
+  font-weight: 100;
+  line-height: 90%;
+}
+
+/* Explore Card Display */
+.container {
+  display: grid;
+  place-items: center;
+  margin-inline: 24px;
+  padding-block: 80px;
+}
+
+.card_container {
+  display: grid;
+  row-gap: 56px;
+}
+
+.card_article {
+  position: relative;
+  overflow: hidden;
+}
+
+.card_img {
+  width: 328px;
+  border-radius: 24px;
+}
+
+.card_data {
+  width: 280px;
+  background-color: #936d6f;
+  padding: 24px 32px;
+  box-shadow: 0 8px 24px hsla(0, 0%, 0%, .15);
+  border-radius: 16px;
+  position: absolute;
+  bottom: -9rem;
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+  opacity: 0;
+  transition: opacity 1s 1s;
+}
+
+.card_button {
+  color: #fff;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 250;
+  list-style: none;
+  display: inline-block;
+  position: relative;
+}
+
+.card_button::after {
+  content: '';
+  height: 2px;
+  width: 0%;
+  background: #fff;
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  transition: 0.5s;
+}
+
+.card_button:hover::after {
+  width: 99%;
+}
+
+.card_description {
+  color: #fff;
+  display: block;
+  font-size: 15px
+}
+
+.card_title {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 550;
+}
+
+/* Explore Card Name Hover Animation */
+.card_article:hover .card_data {
+  animation: show-data 1s forwards;
+  opacity: 1;
+  transition: opacity .3s;
+}
+
+.card_article:hover {
+  animation: remove-overflow 2s forwards;
+}
+
+.card_article:not(:hover) {
+  animation: show-overflow 2s forwards;
+}
+
+.card_article:not(:hover) .card_data {
+  animation: remove-data 1s forwards;
+}
+
+/* Card Animation */
+@keyframes show-data {
+  50% {
+    transform: translateY(-10rem);
+  }
+
+  100% {
+    transform: translateY(-7rem);
+  }
+}
+
+@keyframes remove-overflow {
+  to {
+    overflow: initial;
+  }
+}
+
+@keyframes remove-data {
+  0% {
+    transform: translateY(-7rem);
+  }
+
+  50% {
+    transform: translateY(-10rem);
+  }
+
+  100% {
+    transform: translateY(0.5rem);
+  }
+}
+
+@keyframes show-overflow {
+  0% {
+    overflow: initial;
+    pointer-events: none;
+  }
+
+  50% {
+    overflow: hidden;
+  }
+}
+
+@media screen and (max-width: 340px) {
+  .container {
+    margin-inline: 1rem;
+  }
+
+  .card_data {
+    width: 250px;
+    padding: 1rem;
+  }
+}
+
+/* For medium devices */
+@media screen and (min-width: 768px) {
+  .card_container {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 1.5rem;
+  }
+}
+
+/* For large devices */
+@media screen and (min-width: 1120px) {
+  .container {
+    height: 105vh;
+  }
+
+  .card_container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .card_img {
+    width: 348px;
+  }
+
+  .card_data {
+    width: 316px;
+    padding-inline: 2.5rem;
+  }
+}
+
+#about {
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(assets/background3.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.aboutbanner h1 {
+  width: 100%;
+  position: absolute;
+  transform: translateY(250%);
+  text-align: center;
+  color: #fff;
+  font-size: 70px;
+  font-weight: 100;
+  line-height: 90%;
+}
+
+.aboutbanner p {
+  color: #fff;
+  text-align: center;
+  font-weight: 300;
+  line-height: 25px;
+  transform: translateY(930%);
+}
+
+.about-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.text p {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 200;
+  line-height: 1.5;
+  margin-top: 290px;
+  padding: 0px 250px 0px 250px;
+  text-align: justify;
+}
+
+.aboutname {
+  color: #fff;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 200;
+  transform: translateY(200%);
+}
+
+.aboutname .iglink {
+  color: #fff;
+  text-decoration: none;
+  list-style: none;
+  display: inline-block;
+  position: relative;
+}
+
+.iglink::after {
+  content: '';
+  height: 2px;
+  width: 0%;
+  background: #fff;
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  transition: 0.5s;
+}
+
+.iglink:hover::after {
+  width: 99%;
+}
+
+/* Footer Section */
+footer p {
+  color: #fff;
+  font-size: 10px;
+  padding: 10px;
+  background-color: #232428;
+  text-align: center;
+}
+
+/* Responsive Navigation Bar */
+.sidebar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  z-index: 1;
+  background-color: rgba(22, 27, 38, 0.6);
+  backdrop-filter: blur(10px);
+  box-shadow: -10px 0px 10px rgba(0, 0, 0, 0.1);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sidebar ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.sidebar ul li {
+  list-style: none;
+  text-align: center;
+  height: 10%;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+/* Hide Responsive Navigation Bar In Full Size */
+.navbar .menu {
+  display: none;
+}
+
+/* Responsive Website */
+@media screen and (max-width: 510px) {
+  .navbar ul li {
+    display: none;
+  }
+
+  .navbar .sidebar {
+    display: block;
+  }
+
+  .navbar img {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .navbar .menu {
+    display: block;
+    background-color: transparent;
+    color: #fff;
+    font-size: 25px;
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .navbar h1 {
+    display: none;
+  }
+
+  .homecontent h1 {
+    font-size: 40px;
+  }
+
+  .homecontent p {
+    font-size: 15px;
+  }
+
+  .container {
+    margin-inline: 1rem;
+    height: 110vh;
+  }
+
+  .card_container {
+    grid-template-columns: repeat(1, 1fr);
+    row-gap: 30px;
+  }
+
+  .card_img {
+    width: 155px;
+  }
+
+  .card_data {
+    scale: 50%;
+    padding: 2rem;
+    z-index: 1;
+    left: -40%;
+  }
+
+  @keyframes show-data {
+    50% {
+      transform: translateY(-250px);
+    }
+
+    100% {
+      transform: translateY(-13rem);
+    }
+  }
+
+  @keyframes remove-data {
+    0% {
+      transform: translateY(-13rem);
+    }
+
+    50% {
+      transform: translateY(-250px);
+    }
+  }
+
+  .aboutbanner {
+    scale: 65%;
+  }
+
+  .aboutbanner p {
+    transform: translateY(1900%);
+  }
+
+  .text p {
+    font-size: 12px;
+    margin-top: 450px;
+    padding: 0px 40px 0px 40px;
+  }
+
+  .aboutname {
+    font-size: 12px;
+  }
+}

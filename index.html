@@ -1,0 +1,158 @@
+<!-- 
+UCCD2323 FRONT-END WEB DEVELOPMENT
+
+Chen Jin Shen	2202076
+Chin Whye Ting	2200559
+Chong Jun Hao	2301368
+Ong Jing Yang	2200327
+
+If it ain't broke
+Never fix it
+- Confucius 2023A
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <link rel="icon" type="image/x-icon" href="assets/logo.png">
+    <link rel="stylesheet" href="homestyle.css">
+</head>
+
+<body>
+    <section id="home">
+        <div class="homebanner">
+            <!-- Responsive Navigation Bar -->
+            <div class="sidebar">
+                <ul>
+                    <li><a href="home.html#home">Home</a></li>
+                    <li><a href="home.html#explore">Explore</a></li>
+                    <li><a href="home.html#about">About</a></li>
+                    <li><a href="signin.html">Feedback</a></li>
+                    <li><a href="signin.html">Sign In</a></li>
+                </ul>
+            </div>
+            <!-- Full Size Navigation Bar -->
+            <div class="navbar">
+                <img src="assets/logo.png" style="height: 50px;">
+                <h1 class="logo">Horizon</h1>
+                <button onclick="showsidebar()" class="menu">&#9776</button>
+                <ul>
+                    <li class="home"><a href="#home">Home</a></li>
+                    <li class="explore"><a href="#explore">Explore</a></li>
+                    <li class="about"><a href="#about">About</a></li>
+                    <li class="feedback"><a href="signin.html">Feedback</a></li>
+                    <li><a href="signin.html">Sign In</a></li>
+                </ul>
+            </div>
+            <!-- Responsive Navigation Bar Function -->
+            <script>
+                function showsidebar() {
+                    var sidebar = document.querySelector('.sidebar');
+                    if (sidebar.style.display === 'none' || sidebar.style.display === '') {
+                        sidebar.style.display = 'block';
+                    } else {
+                        sidebar.style.display = 'none';
+                    }
+                }
+            </script>
+        </div>
+        <!-- Home Title -->
+        <div class="homecontent">
+            <h1>A universe of<br />possibilities</h1>
+            <p>Follow us to discover the possibilities of Earth</p>
+            <div>
+                <a href="#explore">
+                    <button type="button"><span></span>EXPLORE</button>
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- Explore Section -->
+    <section id="explore">
+        <h1>EXPLORE</h1>
+        <div class="container">
+            <div class="card_container">
+                <article class="card_article">
+                    <img src="assets/landscape-1.jpg" alt="image" class="card_img">
+
+                    <div class="card_data">
+                        <span class="card_description">Yosemite National Park, USA</span>
+                        <h2 class="card_title">Home of Half Dome</h2>
+                        <a href="signin.html" class="card_button">Read More</a>
+                    </div>
+                </article>
+
+                <article class="card_article">
+                    <img src="assets/landscape-2.jpg" alt="image" class="card_img">
+
+                    <div class="card_data">
+                        <span class="card_description">Hakone, Japan</span>
+                        <h2 class="card_title">Shadow of Mount Fuji</h2>
+                        <a href="signin.html" class="card_button">Read More</a>
+                    </div>
+                </article>
+
+                <article class="card_article">
+                    <img src="assets/landscape-3.jpg" alt="image" class="card_img">
+
+                    <div class="card_data">
+                        <span class="card_description">Mount Everest, Nepal</span>
+                        <h2 class="card_title">Peak of the World</h2>
+                        <a href="signin.html" class="card_button">Read More</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+    <!-- About Section -->
+    <section id="about">
+        <div class="aboutbanner">
+            <h1>We Are <strong>Horizon</strong></h1>
+            <p>Exploring the world together with you.</p>
+        </div>
+        <div class="about-content">
+            <div class="text">
+                <p>Hi World, we are the Faculty of Information and Communication Technology students from UTAR.
+                    </br></br>Horizon isn't just a website; it's a shared journey of discovery and connection. At
+                    Horizon,
+                    our mission is simple yet profound:
+                    to embark on an exploration of the world alongside you. Each click, each scroll is an opportunity to
+                    delve deeper into the wonders of our planet.
+                    </br></br>We're constantly evolving and refining Horizon, striving to offer you an unparalleled
+                    browsing
+                    experience. While we acknowledge
+                    that perfection is a lofty goal, we're committed to making Horizon the epitome of excellence in web
+                    design.
+                    </br></br>So join us on this adventure. Together, let's make Horizon the destination of choice for
+                    every digital explorer.</p>
+            </div>
+        </div>
+        <div class="aboutname">
+            <ion-icon style="transform: translateY(10%);" name="logo-instagram"></ion-icon>
+            <a href="https://www.instagram.com/jinshenn/" class="iglink">Jin Shen</a>
+            <a>&nbsp;&nbsp;&nbsp;&nbsp;</a>
+            <ion-icon style="transform: translateY(10%);" name="logo-instagram"></ion-icon>
+            <a href="https://www.instagram.com/jing_yang03/" class="iglink">Jing Yang</a>
+            <a>&nbsp;&nbsp;&nbsp;&nbsp;</a>
+            <ion-icon style="transform: translateY(10%);" name="logo-instagram"></ion-icon>
+            <a href="https://www.instagram.com/bryanc_1803/" class="iglink">Whye Ting</a>
+            <a>&nbsp;&nbsp;&nbsp;&nbsp;</a>
+            <ion-icon style="transform: translateY(10%);" name="logo-facebook"></ion-icon>
+            <a href="https://www.facebook.com/photo/?fbid=434800802552665&set=a.163449413021140" class="iglink">Jun
+                Hao</a>
+        </div>
+    </section>
+    <!-- Footer Section -->
+    <footer>
+        <p>Copyright © 2024 daqiumou All Right Reserved.</p>
+    </footer>
+    <!-- Icon Link Script -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

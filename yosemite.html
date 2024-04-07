@@ -1,0 +1,93 @@
+<!-- 
+UCCD2323 FRONT-END WEB DEVELOPMENT
+
+Chen Jin Shen	2202076
+Chin Whye Ting	2200559
+Chong Jun Hao	2301368
+Ong Jing Yang	2200327
+
+If it ain't broke
+Never fix it
+- Confucius 2023A
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yosemite National Park</title>
+    <link rel="icon" type="image/x-icon" href="assets/logo.png">
+    <link rel="stylesheet" href="yosemitestyle.css">
+</head>
+
+<body>
+    <!-- Navigation Bar Section -->
+    <section id="home">
+        <div class="homebanner">
+            <div class="sidebar">
+                <ul>
+                    <li><a href="homeadmin.html#home">Home</a></li>
+                    <li><a href="homeadmin.html#explore">Explore</a></li>
+                    <li><a href="homeadmin.html#about">About</a></li>
+                    <li><a href="feedback.html">Feedback</a></li>
+                    <li><a href="index.html">Log Out</a></li>
+                </ul>
+            </div>
+            <div class="navbar">
+                <img src="assets/logo2.png" style="height: 50px;">
+                <h1 class="logo">Horizon</h1>
+                <button onclick="showsidebar()" class="menu">&#9776</button>
+                <ul>
+                    <li><a href="homeadmin.html#home">Home</a></li>
+                    <li><a href="homeadmin.html#explore">Explore</a></li>
+                    <li><a href="homeadmin.html#about">About</a></li>
+                    <li><a href="feedback.html">Feedback</a></li>
+                    <li><a href="index.html">Log Out</a></li>
+                </ul>
+            </div>
+            <script>
+                function showsidebar() {
+                    var sidebar = document.querySelector('.sidebar');
+                    if (sidebar.style.display === 'none' || sidebar.style.display === '') {
+                        sidebar.style.display = 'block';
+                    } else {
+                        sidebar.style.display = 'none';
+                    }
+                }
+            </script>
+        </div>
+
+        <!-- Information Section -->
+        <div class="container">
+            <div class="left-section">
+                <img src="assets/yosemite.jpg" alt="Image" class="image">
+            </div>
+            <div class="right-section">
+                <div class="text">
+                    <h2>Yosemite National Park</h2>
+                    <p>Yosemite National Park is an American national park located in the western Sierra Nevada of
+                        Central California,
+                        bounded on the southeast by Sierra National Forest and on the northwest by Stanislaus National
+                        Forest.
+                        The park is managed by the National Park Service and covers an area of 748,436 acres and sits in
+                        four counties:
+                        centered in Tuolumne and Mariposa, extending north and east to Mono and south to Madera County.
+                        Designated a World Heritage site in 1984, Yosemite is internationally recognized for its granite
+                        cliffs, waterfalls, clear streams,
+                        giant sequoia groves, lakes, mountains, meadows, glaciers, and biological diversity. Almost 95%
+                        of the park is designated wilderness.
+                        </br>On average, about four million people visit Yosemite each year, and most spend the majority
+                        of their time in the seven square miles of
+                        Yosemite Valley. The park set a visitation record in 2016, surpassing five million visitors for
+                        the first time in its history.
+                        Yosemite was central to the development of the national park idea. Galen Clark and others
+                        lobbied to protect Yosemite Valley from development,
+                        ultimately leading to President Abraham Lincoln's signing the Yosemite Grant in 1864.</p>
+                </div>
+            </div>
+        </div>
+</body>
+
+</html>

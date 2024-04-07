@@ -1,0 +1,92 @@
+<!-- 
+UCCD2323 FRONT-END WEB DEVELOPMENT
+
+Chen Jin Shen	2202076
+Chin Whye Ting	2200559
+Chong Jun Hao	2301368
+Ong Jing Yang	2200327
+
+If it ain't broke
+Never fix it
+- Confucius 2023A
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hakone</title>
+    <link rel="icon" type="image/x-icon" href="assets/logo.png">
+    <link rel="stylesheet" href="hakonestyle.css">
+</head>
+
+<body>
+    <!-- Navigation Bar Section -->
+    <section id="home">
+        <div class="homebanner">
+            <div class="sidebar">
+                <ul>
+                    <li><a href="homeadmin.html#home">Home</a></li>
+                    <li><a href="homeadmin.html#explore">Explore</a></li>
+                    <li><a href="homeadmin.html#about">About</a></li>
+                    <li><a href="feedback.html">Feedback</a></li>
+                    <li><a href="index.html">Log Out</a></li>
+                </ul>
+            </div>
+            <div class="navbar">
+                <img src="assets/logo.png" style="height: 50px;">
+                <h1 class="logo">Horizon</h1>
+                <button onclick="showsidebar()" class="menu">&#9776</button>
+                <ul>
+                    <li><a href="homeadmin.html#home">Home</a></li>
+                    <li><a href="homeadmin.html#explore">Explore</a></li>
+                    <li><a href="homeadmin.html#about">About</a></li>
+                    <li><a href="feedback.html">Feedback</a></li>
+                    <li><a href="index.html">Log Out</a></li>
+                </ul>
+            </div>
+            <script>
+                function showsidebar() {
+                    var sidebar = document.querySelector('.sidebar');
+                    if (sidebar.style.display === 'none' || sidebar.style.display === '') {
+                        sidebar.style.display = 'block';
+                    } else {
+                        sidebar.style.display = 'none';
+                    }
+                }
+            </script>
+        </div>
+
+        <!-- Information Section -->
+        <div class="container">
+            <div class="left-section">
+                <img src="assets/hakone.jpg" alt="Image" class="image">
+            </div>
+            <div class="right-section">
+                <div class="text">
+                    <h2></br>Hakone</h2>
+                    <p>Hakone, nestled in Kanagawa Prefecture, Japan, is a serene haven renowned for its natural wonders
+                        and cultural delights.
+                        Surrounded by the Fuji-Hakone-Izu National Park, its mountainous terrain provides stunning
+                        vistas of Mount Fuji.
+                        The town is famed for its soothing hot springs (onsen), offering relaxation in traditional
+                        ryokan and resorts.
+                        The Hakone Open-Air Museum showcases contemporary sculptures amidst picturesque gardens,
+                        while Lake Ashi charms with boat cruises and views of Mount Fuji.
+                        </br>Hakone Shrine, with its iconic red torii gate,
+                        invites spiritual reflection by the lakeshore. Visitors soar above Owakudani's volcanic valley
+                        on the Hakone Ropeway,
+                        sampling local delicacies like black eggs boiled in sulfuric hot springs.
+                        Accessible from Tokyo via trains, buses, or the Romancecar express,
+                        Hakone provides a tranquil escape with its Hakone Tozan Railway, buses, cable cars, and boats
+                        facilitating exploration.
+                        In 180 words, Hakone emerges as an idyllic blend of nature's splendor, cultural richness, and
+                        rejuvenating retreats.</p>
+                </div>
+            </div>
+        </div>
+</body>
+
+</html>

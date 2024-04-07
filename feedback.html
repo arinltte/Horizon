@@ -1,0 +1,126 @@
+<!--
+UCCD2323 FRONT-END WEB DEVELOPMENT
+
+Chen Jin Shen	2202076
+Chin Whye Ting	2200559
+Chong Jun Hao	2301368
+Ong Jing Yang	2200327
+
+If it ain't broke
+Never fix it
+- Confucius 2023A
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="assets/logo.png">
+    <link rel="stylesheet" href="feedbackstyle.css">
+    <title>Feedback</title>
+</head>
+
+<body>
+    <!-- Navigation Bar Section -->
+    <section id="home">
+        <div class="homebanner">
+            <div class="sidebar">
+                <ul>
+                    <li><a href="homeadmin.html#home">Home</a></li>
+                    <li><a href="homeadmin.html#explore">Explore</a></li>
+                    <li><a href="homeadmin.html#about">About</a></li>
+                    <li><a href="feedback.html">Feedback</a></li>
+                    <li><a href="index.html">Log Out</a></li>
+                </ul>
+            </div>
+            <div class="navbar">
+                <img src="assets/logo.png" style="height: 50px;">
+                <h1 class="logo">Horizon</h1>
+                <button onclick="showsidebar()" class="menu">&#9776</button>
+                <ul>
+                    <li><a href="homeadmin.html#home">Home</a></li>
+                    <li><a href="homeadmin.html#explore">Explore</a></li>
+                    <li><a href="homeadmin.html#about">About</a></li>
+                    <li><a href="feedback.html">Feedback</a></li>
+                    <li><a href="index.html">Log Out</a></li>
+                </ul>
+            </div>
+            <script>
+                function showsidebar() {
+                    var sidebar = document.querySelector('.sidebar');
+                    if (sidebar.style.display === 'none' || sidebar.style.display === '') {
+                        sidebar.style.display = 'block';
+                    } else {
+                        sidebar.style.display = 'none';
+                    }
+                }
+            </script>
+        </div>
+
+        <!-- Feedback Form Section -->
+        <section>
+            <form id="feedbackform">
+                <div class="form-box">
+                    <div class="form-value">
+                        <form action="">
+                            <h2>Feedback</h2>
+
+                            <div class="inputbox">
+                                <ion-icon name="person-outline"></ion-icon>
+                                <input type="text" required id="name" name="name">
+                                <label for="name">Name</label>
+                            </div>
+
+                            <div class="inputbox">
+                                <ion-icon name="mail-outline"></ion-icon>
+                                <input type="email" required id="email" name="email">
+                                <label for="email">Email</label>
+                            </div>
+
+                            <div class="inputbox">
+                                <ion-icon name="reader-outline"></ion-icon>
+                                <input type="text" required id="subject" name="subject">
+                                <label for="subject">Subject</label>
+                            </div>
+
+                            <div class="inputbox">
+                                <ion-icon name="reorder-four-outline"></ion-icon>
+                                <input type="text" required id="description" name="description">
+                                <label for="description">Description</label>
+                            </div>
+
+                            <button type="submit">Submit</button>
+                        </form>
+
+                        <script>
+                            document.getElementById('feedbackform').addEventListener('submit', function (event) {
+                                event.preventDefault();
+
+                                var feedbackData = {
+                                    name: document.getElementById('name').value,
+                                    email: document.getElementById('email').value,
+                                    subject: document.getElementById('subject').value,
+                                    description: document.getElementById('description').value
+                                };
+
+                                // Save Feedback Data to Local Storage
+                                var feedbacks = JSON.parse(localStorage.getItem('feedbacks')) || [];
+                                feedbacks.push(feedbackData);
+                                localStorage.setItem('feedbacks', JSON.stringify(feedbacks));
+                                document.getElementById('feedbackform').reset();
+
+                                alert('Feedback Submitted');
+                            });
+                        </script>
+                    </div>
+                </div>
+            </form>
+        </section>
+        <!-- Icon Link Script -->
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

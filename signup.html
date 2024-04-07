@@ -1,0 +1,133 @@
+<!--
+UCCD2323 FRONT-END WEB DEVELOPMENT
+
+Chen Jin Shen	2202076
+Chin Whye Ting	2200559
+Chong Jun Hao	2301368
+Ong Jing Yang	2200327
+
+If it ain't broke
+Never fix it
+- Confucius 2023A
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="assets/logo.png">
+    <link rel="stylesheet" href="signupstyle.css">
+    <title>Sign Up</title>
+</head>
+
+<body>
+    <!-- Navigation Bar Section -->
+    <section id="home">
+        <div class="homebanner">
+            <div class="sidebar">
+                <ul>
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="index.html#explore">Explore</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="signin.html">Feedback</a></li>
+                    <li><a href="signin.html">Sign In</a></li>
+                </ul>
+            </div>
+            <div class="navbar">
+                <img src="assets/logo.png" style="height: 50px;">
+                <h1 class="logo">Horizon</h1>
+                <button onclick="showsidebar()" class="menu">&#9776</button>
+                <ul>
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="index.html#explore">Explore</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="singin.html">Feedback</a></li>
+                    <li><a href="signin.html">Sign In</a></li>
+                </ul>
+            </div>
+            <script>
+                function showsidebar() {
+                    var sidebar = document.querySelector('.sidebar');
+                    if (sidebar.style.display === 'none' || sidebar.style.display === '') {
+                        sidebar.style.display = 'block';
+                    } else {
+                        sidebar.style.display = 'none';
+                    }
+                }
+            </script>
+        </div>
+
+        <!-- Sign Up Form Section -->
+        <section>
+            <form id="signupform">
+                <div class="form-box">
+                    <div class="form-value">
+                        <form action="">
+                            <h2>Sign Up</h2>
+
+                            <div class="inputbox">
+                                <ion-icon name="person-outline"></ion-icon>
+                                <input type="text" required id="name" name="name">
+                                <label for="name">Name</label>
+                            </div>
+
+                            <div class="inputbox">
+                                <ion-icon name="mail-outline"></ion-icon>
+                                <input type="email" required id="email" name="email">
+                                <label for="email">Email</label>
+                            </div>
+
+                            <div class="inputbox">
+                                <ion-icon name="lock-closed-outline"></ion-icon>
+                                <input type="password" required id="password" name="password">
+                                <label for="password">Password</label>
+                            </div>
+
+                            <div class="inputbox">
+                                <ion-icon name="lock-closed-outline"></ion-icon>
+                                <input type="password" required id="confirmPassword" name="confirmPassword">
+                                <label for="confirmPassword">Confirm Password</label>
+                            </div>
+                            <div class="forget">
+                                <label for=""><input type="checkbox" class="onoffswitch-checkbox" id="inline" checked>I
+                                    agree all statements in <strong>Terms of Service</strong></label>
+                            </div>
+
+                            <button type="submit">Register</button>
+                        </form>
+
+                        <script>
+                            document.getElementById("signupform").addEventListener("submit", function (event) {
+                                event.preventDefault();
+                                var name = document.getElementById("name").value;
+                                var email = document.getElementById("email").value;
+                                var password = document.getElementById("password").value;
+                                var confirmPassword = document.getElementById("confirmPassword").value;
+
+                                // Checking Two Passwords 
+                                if (password !== confirmPassword) {
+                                    alert("Passwords Do Not Match.");
+                                    return;
+                                }
+
+                                // Create Cookies for Sign In
+                                document.cookie = `name=${name};`;
+                                document.cookie = `email=${email};`;
+                                document.cookie = `password=${password};`;
+
+                                alert("Sign Up Successful");
+                                window.location.href = "signin.html";
+                            });
+                        </script>
+                    </div>
+                </div>
+            </form>
+        </section>
+        <!-- Icon Link Script -->
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
